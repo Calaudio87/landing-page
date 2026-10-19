@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Mail, MessageSquare, Send, CheckCircle2, Phone, MapPin, Clock, Copy, Check, ExternalLink, Calendar, ShieldCheck, Sparkles } from 'lucide-react';
+import { Mail, MessageSquare, Send, CheckCircle2, MapPin, Clock, Copy, Check, Calendar, ShieldCheck } from 'lucide-react';
 import { PERSONAL_INFO } from '../data/portfolioData';
 import { ContactFormData } from '../types';
 
@@ -76,7 +76,6 @@ ${formData.name}`
 Presupuesto: ${formData.budgetRange} | Plazo: ${formData.timeline}.
 Detalles: ${formData.message}`
     );
-    // Use international format without + or spaces
     return `https://wa.me/56987654321?text=${text}`;
   };
 
@@ -94,47 +93,46 @@ Mensaje: ${formData.message}`;
   };
 
   return (
-    <section id="contacto" className="py-20 bg-slate-950 relative border-t border-slate-900">
+    <section id="contacto" className="py-20 bg-slate-50/60 dark:bg-slate-950 relative border-t border-slate-200 dark:border-slate-900 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-rose-500/10 border border-rose-500/20 text-rose-400 text-xs font-mono font-semibold">
-            <Mail className="w-3.5 h-3.5" />
-            <span>Contacto Directo & Cotizaciones</span>
+        <div className="text-center max-w-3xl mx-auto mb-14 space-y-2">
+          <div className="inline-flex items-center gap-2 text-xs font-mono text-slate-500 dark:text-slate-400">
+            <Mail className="w-3.5 h-3.5 text-rose-600 dark:text-rose-400" />
+            <span>Contacto Directo &amp; Cotizaciones</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold font-display text-white tracking-tight">
-            Iniciemos una <span className="bg-gradient-to-r from-rose-400 to-amber-400 bg-clip-text text-transparent">conversación directa</span>
+          <h2 className="text-3xl sm:text-4xl font-extrabold font-display text-slate-900 dark:text-white tracking-tight">
+            Iniciemos una Conversación
           </h2>
-          <p className="text-slate-400 text-sm sm:text-base">
-            ¿Tienes un proyecto en mente, una base de datos MySQL que necesita optimización o buscas incorporar un desarrollador Laravel Senior a tu equipo?
+          <p className="text-slate-600 dark:text-slate-400 text-sm sm:text-base leading-relaxed">
+            ¿Tienes un proyecto en desarrollo, una base de datos MySQL que requiere optimización o buscas incorporar un desarrollador Laravel senior a tu equipo?
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           {/* Left Column: Direct Info & Booking Card */}
-          <div className="lg:col-span-5 space-y-6">
-            {/* Contact Details Card */}
-            <div className="rounded-2xl bg-slate-900/60 border border-slate-800 p-6 sm:p-7 space-y-5">
-              <h3 className="text-lg font-bold font-display text-white">
-                Canales Directos de Comunicación
+          <div className="lg:col-span-5 space-y-5">
+            <div className="rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 sm:p-7 space-y-5 shadow-xs transition-colors">
+              <h3 className="text-base font-bold font-display text-slate-900 dark:text-white">
+                Canales Directos
               </h3>
 
               {/* Email Block */}
-              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
-                <div className="flex items-center justify-between">
-                  <span className="text-xs text-slate-400 font-mono flex items-center gap-1.5">
-                    <Mail className="w-3.5 h-3.5 text-rose-400" />
-                    <span>Correo Electrónico Personal</span>
+              <div className="p-4 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 space-y-2">
+                <div className="flex items-center justify-between text-xs font-mono text-slate-500 dark:text-slate-400">
+                  <span className="flex items-center gap-1.5">
+                    <Mail className="w-3.5 h-3.5 text-rose-600 dark:text-rose-400" />
+                    <span>Correo Electrónico</span>
                   </span>
                   <button
                     id="copy-email-btn"
                     onClick={handleCopyEmail}
-                    className="flex items-center gap-1 text-[11px] font-mono text-slate-400 hover:text-white transition-colors cursor-pointer"
+                    className="flex items-center gap-1 text-[11px] hover:text-slate-900 dark:hover:text-white transition-colors cursor-pointer"
                   >
                     {copiedEmail ? (
                       <>
-                        <Check className="w-3.5 h-3.5 text-emerald-400" />
-                        <span className="text-emerald-400">Copiado</span>
+                        <Check className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
+                        <span className="text-emerald-600 dark:text-emerald-400">Copiado</span>
                       </>
                     ) : (
                       <>
@@ -146,54 +144,54 @@ Mensaje: ${formData.message}`;
                 </div>
                 <a
                   href={`mailto:${PERSONAL_INFO.email}`}
-                  className="text-sm font-mono font-bold text-rose-400 hover:text-rose-300 transition-colors block break-all"
+                  className="text-sm font-mono font-bold text-rose-600 dark:text-rose-400 hover:underline block break-all"
                 >
                   {PERSONAL_INFO.email}
                 </a>
               </div>
 
-              {/* Badges Info */}
-              <div className="space-y-3 text-xs text-slate-300">
-                <div className="flex items-center gap-3 p-3 rounded-xl bg-slate-950/60 border border-slate-800/80">
-                  <Clock className="w-4 h-4 text-amber-400 shrink-0" />
+              {/* Direct Info */}
+              <div className="space-y-2.5 text-xs text-slate-600 dark:text-slate-300">
+                <div className="flex items-center gap-3 p-3 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800">
+                  <Clock className="w-4 h-4 text-amber-600 dark:text-amber-400 shrink-0" />
                   <div>
-                    <strong className="text-white block font-medium">Tiempo de Respuesta Rápido</strong>
-                    <span className="text-slate-400">Respuesta garantizada en menos de 24 horas hábiles.</span>
+                    <strong className="text-slate-900 dark:text-white block font-medium">Respuesta Rápida</strong>
+                    <span className="text-slate-500 dark:text-slate-400">Respuesta en menos de 24 horas hábiles.</span>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-3 p-3 rounded-xl bg-slate-950/60 border border-slate-800/80">
-                  <MapPin className="w-4 h-4 text-cyan-400 shrink-0" />
+                <div className="flex items-center gap-3 p-3 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800">
+                  <MapPin className="w-4 h-4 text-sky-600 dark:text-sky-400 shrink-0" />
                   <div>
-                    <strong className="text-white block font-medium">Ubicación & Disponibilidad</strong>
-                    <span className="text-slate-400">{PERSONAL_INFO.location}</span>
+                    <strong className="text-slate-900 dark:text-white block font-medium">Ubicación &amp; Modalidad</strong>
+                    <span className="text-slate-500 dark:text-slate-400">{PERSONAL_INFO.location}</span>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-3 p-3 rounded-xl bg-slate-950/60 border border-slate-800/80">
-                  <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0" />
+                <div className="flex items-center gap-3 p-3 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800">
+                  <ShieldCheck className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
                   <div>
-                    <strong className="text-white block font-medium">Acuerdo de Confidencialidad (NDA)</strong>
-                    <span className="text-slate-400">Firma previa de NDA disponible para proyectos privados.</span>
+                    <strong className="text-slate-900 dark:text-white block font-medium">Acuerdo de Confidencialidad</strong>
+                    <span className="text-slate-500 dark:text-slate-400">Firma previa de NDA disponible para proyectos privados.</span>
                   </div>
                 </div>
               </div>
 
               {/* Call Booking Card */}
-              <div className="p-5 rounded-xl bg-gradient-to-br from-slate-900 to-slate-950 border border-rose-500/30 space-y-3">
-                <div className="flex items-center gap-2 text-rose-400 font-semibold text-xs">
+              <div className="p-4 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 space-y-2.5">
+                <div className="flex items-center gap-2 text-rose-600 dark:text-rose-400 font-semibold text-xs">
                   <Calendar className="w-4 h-4" />
-                  <span>¿Prefieres conversar en vivo?</span>
+                  <span>¿Prefieres agendar una reunión directa?</span>
                 </div>
-                <p className="text-xs text-slate-300">
-                  Reserva una llamada técnica de 30 minutos para analizar tu arquitectura actual o estimar los requerimientos de tu sistema.
+                <p className="text-xs text-slate-600 dark:text-slate-400">
+                  Conversación técnica de 30 minutos por Google Meet para revisar arquitectura y requerimientos.
                 </p>
                 <button
                   id="contact-schedule-btn"
                   onClick={onOpenBooking}
-                  className="w-full py-2.5 px-4 bg-slate-800 hover:bg-slate-700 text-white font-medium text-xs rounded-lg border border-slate-700 transition-all flex items-center justify-center gap-2 cursor-pointer shadow-sm"
+                  className="w-full py-2 px-3 bg-white dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-800 dark:text-slate-200 font-medium text-xs rounded-lg border border-slate-200 dark:border-slate-800 transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-xs"
                 >
-                  <Calendar className="w-3.5 h-3.5 text-rose-400" />
+                  <Calendar className="w-3.5 h-3.5 text-rose-600 dark:text-rose-400" />
                   <span>Agendar Llamada en Calendario</span>
                 </button>
               </div>
@@ -202,49 +200,49 @@ Mensaje: ${formData.message}`;
 
           {/* Right Column: Direct Communication Form */}
           <div className="lg:col-span-7">
-            <div className="rounded-2xl bg-slate-900/80 border border-slate-800 p-6 sm:p-8 backdrop-blur-sm shadow-xl">
+            <div className="rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-xs transition-colors">
               {isSubmitted ? (
                 /* Form Success & Dispatch Options */
-                <div className="space-y-6 animate-in fade-in duration-300">
-                  <div className="flex items-center gap-3 p-4 rounded-xl bg-emerald-950/40 border border-emerald-500/30 text-emerald-300">
-                    <CheckCircle2 className="w-6 h-6 text-emerald-400 shrink-0" />
+                <div className="space-y-5 animate-in fade-in duration-200">
+                  <div className="flex items-center gap-3 p-4 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-500/30 text-emerald-800 dark:text-emerald-300">
+                    <CheckCircle2 className="w-5 h-5 text-emerald-600 dark:text-emerald-400 shrink-0" />
                     <div>
-                      <h4 className="text-sm font-bold text-white">
+                      <h3 className="text-sm font-bold text-slate-900 dark:text-white">
                         ¡Mensaje estructurado listo para envío directo!
-                      </h4>
-                      <p className="text-xs text-emerald-300/90 mt-0.5">
-                        Tu información ha sido formateada. Puedes despacharla con un clic directo a Claudio Leiva.
+                      </h3>
+                      <p className="text-xs text-emerald-700 dark:text-emerald-300/90 mt-0.5">
+                        Selecciona el canal por el que deseas despachar la solicitud:
                       </p>
                     </div>
                   </div>
 
                   {/* Summary Box */}
-                  <div className="p-5 rounded-xl bg-slate-950 border border-slate-800 space-y-3 font-mono text-xs text-slate-300">
-                    <div className="flex justify-between border-b border-slate-800 pb-2">
-                      <span className="text-slate-400">Destinatario:</span>
-                      <span className="text-rose-400 font-bold">{PERSONAL_INFO.email}</span>
+                  <div className="p-4 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 space-y-2.5 font-mono text-xs text-slate-700 dark:text-slate-300">
+                    <div className="flex justify-between border-b border-slate-200 dark:border-slate-800 pb-2">
+                      <span className="text-slate-500">Destinatario:</span>
+                      <span className="text-rose-600 dark:text-rose-400 font-bold">{PERSONAL_INFO.email}</span>
                     </div>
                     <div className="grid grid-cols-2 gap-2 text-[11px]">
-                      <div><span className="text-slate-500">De:</span> {formData.name}</div>
-                      <div><span className="text-slate-500">Email:</span> {formData.email}</div>
-                      <div><span className="text-slate-500">Servicio:</span> {formData.serviceType}</div>
-                      <div><span className="text-slate-500">Presupuesto:</span> {formData.budgetRange}</div>
+                      <div><span className="text-slate-400">De:</span> {formData.name}</div>
+                      <div><span className="text-slate-400">Email:</span> {formData.email}</div>
+                      <div><span className="text-slate-400">Servicio:</span> {formData.serviceType}</div>
+                      <div><span className="text-slate-400">Presupuesto:</span> {formData.budgetRange}</div>
                     </div>
-                    <div className="pt-2 border-t border-slate-800 text-slate-300">
-                      <span className="text-slate-500 block mb-1">Mensaje:</span>
-                      <p className="italic font-sans text-slate-200 line-clamp-4">{formData.message}</p>
+                    <div className="pt-2 border-t border-slate-200 dark:border-slate-800">
+                      <span className="text-slate-400 block mb-1">Mensaje:</span>
+                      <p className="font-sans text-slate-800 dark:text-slate-200 line-clamp-4">{formData.message}</p>
                     </div>
                   </div>
 
                   {/* Primary Dispatch Actions */}
-                  <div className="space-y-3">
+                  <div className="space-y-2.5">
                     <a
                       id="submit-mailto-action"
                       href={generateMailtoUrl()}
-                      className="w-full py-3.5 bg-gradient-to-r from-rose-600 to-rose-500 hover:from-rose-500 hover:to-rose-400 text-white font-semibold text-xs rounded-xl shadow-lg shadow-rose-600/30 transition-all flex items-center justify-center gap-2"
+                      className="w-full py-2.5 bg-rose-600 hover:bg-rose-700 text-white font-medium text-xs rounded-lg transition-colors flex items-center justify-center gap-2 shadow-xs"
                     >
-                      <Mail className="w-4 h-4" />
-                      <span>Abrir y Enviar por Correo Electrónico (mailto)</span>
+                      <Mail className="w-3.5 h-3.5" />
+                      <span>Abrir y Enviar por Correo Electrónico</span>
                     </a>
 
                     <a
@@ -252,35 +250,35 @@ Mensaje: ${formData.message}`;
                       href={generateWhatsAppUrl()}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-full py-3 bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs rounded-xl shadow-md shadow-emerald-600/25 transition-all flex items-center justify-center gap-2"
+                      className="w-full py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-medium text-xs rounded-lg transition-colors flex items-center justify-center gap-2 shadow-xs"
                     >
-                      <MessageSquare className="w-4 h-4" />
+                      <MessageSquare className="w-3.5 h-3.5" />
                       <span>Enviar Resumen Directo vía WhatsApp</span>
                     </a>
 
-                    <div className="flex gap-2 pt-2">
+                    <div className="flex gap-2 pt-1">
                       <button
                         onClick={handleCopySummary}
-                        className="flex-1 py-2.5 bg-slate-950 hover:bg-slate-800 text-slate-300 text-xs font-mono rounded-lg border border-slate-800 flex items-center justify-center gap-1.5 transition-colors cursor-pointer"
+                        className="flex-1 py-2 bg-slate-100 dark:bg-slate-950 hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 text-xs font-mono rounded-lg border border-slate-200 dark:border-slate-800 flex items-center justify-center gap-1.5 transition-colors cursor-pointer"
                       >
                         {copiedSummary ? (
                           <>
-                            <Check className="w-3.5 h-3.5 text-emerald-400" />
+                            <Check className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
                             <span>Copiado al Portapapeles</span>
                           </>
                         ) : (
                           <>
                             <Copy className="w-3.5 h-3.5" />
-                            <span>Copiar Texto Completo</span>
+                            <span>Copiar Resumen</span>
                           </>
                         )}
                       </button>
 
                       <button
                         onClick={() => setIsSubmitted(false)}
-                        className="px-4 py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white text-xs rounded-lg transition-colors cursor-pointer"
+                        className="px-3 py-2 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs rounded-lg transition-colors cursor-pointer"
                       >
-                        Editar Formulario
+                        Editar
                       </button>
                     </div>
                   </div>
@@ -288,19 +286,19 @@ Mensaje: ${formData.message}`;
               ) : (
                 /* Contact Form */
                 <form onSubmit={handleSubmit} className="space-y-4 text-xs">
-                  <div className="flex items-center justify-between pb-2 border-b border-slate-800 mb-2">
-                    <h3 className="text-base font-bold font-display text-white">
-                      Formulario de Contacto Directo
+                  <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
+                    <h3 className="text-base font-bold font-display text-slate-900 dark:text-white">
+                      Formulario de Contacto
                     </h3>
                     <span className="text-[11px] font-mono text-slate-400">
-                      * Campos Requeridos
+                      * Obligatorio
                     </span>
                   </div>
 
                   {/* Name & Email */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-slate-300 font-semibold mb-1">
+                      <label className="block text-slate-700 dark:text-slate-300 font-medium mb-1">
                         Tu Nombre Completo *
                       </label>
                       <input
@@ -310,13 +308,13 @@ Mensaje: ${formData.message}`;
                         placeholder="Ej: Marcelo Morales"
                         value={formData.name}
                         onChange={handleChange}
-                        className="w-full p-3 bg-slate-950 border border-slate-800 rounded-xl text-slate-200 placeholder:text-slate-500 focus:outline-none focus:border-rose-500/80 transition-colors"
+                        className="w-full p-2.5 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-lg text-slate-900 dark:text-slate-100 placeholder:text-slate-400 focus:outline-none focus:border-rose-500 transition-colors"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-slate-300 font-semibold mb-1">
-                        Correo Electrónico de Contacto *
+                      <label className="block text-slate-700 dark:text-slate-300 font-medium mb-1">
+                        Correo Electrónico *
                       </label>
                       <input
                         type="email"
@@ -325,7 +323,7 @@ Mensaje: ${formData.message}`;
                         placeholder="tu@empresa.com"
                         value={formData.email}
                         onChange={handleChange}
-                        className="w-full p-3 bg-slate-950 border border-slate-800 rounded-xl text-slate-200 placeholder:text-slate-500 focus:outline-none focus:border-rose-500/80 transition-colors"
+                        className="w-full p-2.5 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-lg text-slate-900 dark:text-slate-100 placeholder:text-slate-400 focus:outline-none focus:border-rose-500 transition-colors"
                       />
                     </div>
                   </div>
@@ -333,7 +331,7 @@ Mensaje: ${formData.message}`;
                   {/* Company & Service Type */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-slate-300 font-semibold mb-1">
+                      <label className="block text-slate-700 dark:text-slate-300 font-medium mb-1">
                         Empresa / Organización (Opcional)
                       </label>
                       <input
@@ -342,24 +340,24 @@ Mensaje: ${formData.message}`;
                         placeholder="Ej: Tech Logistics SpA"
                         value={formData.company}
                         onChange={handleChange}
-                        className="w-full p-3 bg-slate-950 border border-slate-800 rounded-xl text-slate-200 placeholder:text-slate-500 focus:outline-none focus:border-rose-500/80 transition-colors"
+                        className="w-full p-2.5 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-lg text-slate-900 dark:text-slate-100 placeholder:text-slate-400 focus:outline-none focus:border-rose-500 transition-colors"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-slate-300 font-semibold mb-1">
+                      <label className="block text-slate-700 dark:text-slate-300 font-medium mb-1">
                         Tipo de Requerimiento *
                       </label>
                       <select
                         name="serviceType"
                         value={formData.serviceType}
                         onChange={handleChange}
-                        className="w-full p-3 bg-slate-950 border border-slate-800 rounded-xl text-slate-200 focus:outline-none focus:border-rose-500/80 transition-colors cursor-pointer"
+                        className="w-full p-2.5 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-lg text-slate-900 dark:text-slate-100 focus:outline-none focus:border-rose-500 transition-colors cursor-pointer"
                       >
                         <option value="Desarrollo Backend en Laravel a Medida">Desarrollo Backend en Laravel a Medida</option>
                         <option value="Auditoría y Optimización de Bases de Datos MySQL">Auditoría y Optimización de Bases de Datos MySQL</option>
                         <option value="Migración y Modernización de Sistemas PHP Legacy">Migración y Modernización de Sistemas PHP Legacy</option>
-                        <option value="Arquitectura de APIs & Integraciones Complejas">Arquitectura de APIs & Integraciones Complejas</option>
+                        <option value="Arquitectura de APIs & Integraciones Complejas">Arquitectura de APIs &amp; Integraciones Complejas</option>
                         <option value="Contratación Senior Backend (Full Time / Part Time)">Contratación Senior Backend (Full Time / Part Time)</option>
                         <option value="Consultoría Técnica General">Consultoría Técnica General</option>
                       </select>
@@ -369,14 +367,14 @@ Mensaje: ${formData.message}`;
                   {/* Budget & Timeline */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-slate-300 font-semibold mb-1">
+                      <label className="block text-slate-700 dark:text-slate-300 font-medium mb-1">
                         Presupuesto Estimado
                       </label>
                       <select
                         name="budgetRange"
                         value={formData.budgetRange}
                         onChange={handleChange}
-                        className="w-full p-3 bg-slate-950 border border-slate-800 rounded-xl text-slate-200 focus:outline-none focus:border-rose-500/80 transition-colors cursor-pointer"
+                        className="w-full p-2.5 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-lg text-slate-900 dark:text-slate-100 focus:outline-none focus:border-rose-500 transition-colors cursor-pointer"
                       >
                         <option value="< $1,000 USD">&lt; $1,000 USD (Consultoría puntual)</option>
                         <option value="$1,000 - $3,000 USD">$1,000 - $3,000 USD (Módulos / Optimización)</option>
@@ -387,14 +385,14 @@ Mensaje: ${formData.message}`;
                     </div>
 
                     <div>
-                      <label className="block text-slate-300 font-semibold mb-1">
+                      <label className="block text-slate-700 dark:text-slate-300 font-medium mb-1">
                         Plazo Deseado
                       </label>
                       <select
                         name="timeline"
                         value={formData.timeline}
                         onChange={handleChange}
-                        className="w-full p-3 bg-slate-950 border border-slate-800 rounded-xl text-slate-200 focus:outline-none focus:border-rose-500/80 transition-colors cursor-pointer"
+                        className="w-full p-2.5 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-lg text-slate-900 dark:text-slate-100 focus:outline-none focus:border-rose-500 transition-colors cursor-pointer"
                       >
                         <option value="Urgente (< 2 semanas)">Urgente (&lt; 2 semanas / Incidente crítico)</option>
                         <option value="1 a 2 meses">1 a 2 meses</option>
@@ -406,17 +404,17 @@ Mensaje: ${formData.message}`;
 
                   {/* Message */}
                   <div>
-                    <label className="block text-slate-300 font-semibold mb-1">
-                      Descripción del Proyecto o Mensaje *
+                    <label className="block text-slate-700 dark:text-slate-300 font-medium mb-1">
+                      Descripción del Proyecto o Desafío Técnico *
                     </label>
                     <textarea
                       name="message"
                       required
                       rows={4}
-                      placeholder="Cuéntame brevemente sobre tu aplicación, volumen de datos actual, versión de Laravel/PHP/MySQL o desafíos técnicos específicos..."
+                      placeholder="Cuéntame brevemente sobre tu aplicación, volumen de datos actual, versión de Laravel/PHP/MySQL o desafíos específicos..."
                       value={formData.message}
                       onChange={handleChange}
-                      className="w-full p-3 bg-slate-950 border border-slate-800 rounded-xl text-slate-200 placeholder:text-slate-500 focus:outline-none focus:border-rose-500/80 transition-colors resize-none"
+                      className="w-full p-2.5 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-lg text-slate-900 dark:text-slate-100 placeholder:text-slate-400 focus:outline-none focus:border-rose-500 transition-colors resize-none"
                     ></textarea>
                   </div>
 
@@ -424,14 +422,14 @@ Mensaje: ${formData.message}`;
                   <button
                     id="contact-form-submit"
                     type="submit"
-                    className="w-full py-3.5 bg-gradient-to-r from-rose-600 to-rose-500 hover:from-rose-500 hover:to-rose-400 text-white font-semibold text-xs rounded-xl shadow-lg shadow-rose-600/30 transition-all flex items-center justify-center gap-2 cursor-pointer hover:scale-[1.01] active:scale-[0.99]"
+                    className="w-full py-2.5 bg-rose-600 hover:bg-rose-700 text-white font-medium text-xs rounded-lg transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-xs"
                   >
-                    <Send className="w-4 h-4" />
-                    <span>Enviar Mensaje y Contactar Directamente</span>
+                    <Send className="w-3.5 h-3.5" />
+                    <span>Preparar Envío de Mensaje</span>
                   </button>
 
-                  <p className="text-[11px] text-slate-500 text-center">
-                    🔒 Tu información se maneja con estricta confidencialidad profesional y no se comparte con terceros.
+                  <p className="text-[11px] text-slate-400 text-center font-sans">
+                    Información manejada bajo confidencialidad profesional.
                   </p>
                 </form>
               )}

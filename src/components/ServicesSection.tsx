@@ -1,5 +1,5 @@
 import React from 'react';
-import { Briefcase, Code, Database, RefreshCw, Share2, Check, ArrowRight, Sparkles } from 'lucide-react';
+import { Briefcase, Code, Database, RefreshCw, Share2, Check, ArrowRight } from 'lucide-react';
 import { SERVICES } from '../data/portfolioData';
 
 interface ServicesSectionProps {
@@ -10,15 +10,15 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
   const getIcon = (iconName: string) => {
     switch (iconName) {
       case 'Code':
-        return <Code className="w-5 h-5 text-rose-400" />;
+        return <Code className="w-5 h-5 text-rose-600 dark:text-rose-400" />;
       case 'Database':
-        return <Database className="w-5 h-5 text-cyan-400" />;
+        return <Database className="w-5 h-5 text-sky-600 dark:text-sky-400" />;
       case 'RefreshCw':
-        return <RefreshCw className="w-5 h-5 text-amber-400" />;
+        return <RefreshCw className="w-5 h-5 text-amber-600 dark:text-amber-400" />;
       case 'Share2':
-        return <Share2 className="w-5 h-5 text-emerald-400" />;
+        return <Share2 className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />;
       default:
-        return <Briefcase className="w-5 h-5 text-rose-400" />;
+        return <Briefcase className="w-5 h-5 text-rose-600 dark:text-rose-400" />;
     }
   };
 
@@ -31,19 +31,19 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
   };
 
   return (
-    <section id="servicios" className="py-20 bg-slate-900/50 relative border-t border-slate-800">
+    <section id="servicios" className="py-20 bg-white dark:bg-slate-950 relative border-t border-slate-200 dark:border-slate-900 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-rose-500/10 border border-rose-500/20 text-rose-400 text-xs font-mono font-semibold">
-            <Briefcase className="w-3.5 h-3.5" />
-            <span>Servicios & Modalidades de Colaboración</span>
+        <div className="text-center max-w-3xl mx-auto mb-12 space-y-2">
+          <div className="inline-flex items-center gap-2 text-xs font-mono text-slate-500 dark:text-slate-400">
+            <Briefcase className="w-3.5 h-3.5 text-rose-600 dark:text-rose-400" />
+            <span>Servicios de Consultoría &amp; Desarrollo</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold font-display text-white tracking-tight">
-            ¿Cómo puedo <span className="bg-gradient-to-r from-rose-400 via-amber-400 to-cyan-400 bg-clip-text text-transparent">ayudarte a escalar?</span>
+          <h2 className="text-3xl sm:text-4xl font-extrabold font-display text-slate-900 dark:text-white tracking-tight">
+            Modalidades de Colaboración
           </h2>
-          <p className="text-slate-400 text-sm sm:text-base">
-            Soluciones de ingeniería backend para empresas, agencias y startups que buscan velocidad, estabilidad y bases de datos robustas.
+          <p className="text-slate-600 dark:text-slate-400 text-sm sm:text-base leading-relaxed">
+            Soluciones de ingeniería para empresas y startups que requieren velocidad, estabilidad y bases de datos relacionales sin cuellos de botella.
           </p>
         </div>
 
@@ -52,35 +52,35 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
           {SERVICES.map((service) => (
             <div
               key={service.id}
-              className="flex flex-col justify-between rounded-2xl bg-slate-950/80 border border-slate-800 hover:border-slate-700 p-6 sm:p-8 transition-all duration-300 hover:shadow-xl hover:shadow-rose-950/20 group"
+              className="flex flex-col justify-between rounded-2xl bg-slate-50/70 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 p-6 sm:p-7 transition-colors shadow-xs group"
             >
               <div>
-                <div className="flex items-center justify-between gap-4 mb-4">
-                  <div className="p-3 rounded-xl bg-slate-900 border border-slate-800 group-hover:scale-105 transition-transform">
+                <div className="flex items-center justify-between gap-4 mb-3">
+                  <div className="p-2.5 rounded-xl bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800">
                     {getIcon(service.iconName)}
                   </div>
-                  <span className="text-[10px] font-mono font-semibold px-2.5 py-1 rounded-md bg-slate-900 text-slate-400 border border-slate-800">
-                    Consultoría & Desarrollo
+                  <span className="text-[10px] font-mono font-medium text-slate-500 dark:text-slate-400">
+                    Consultoría Especializada
                   </span>
                 </div>
 
-                <h3 className="text-xl font-bold font-display text-white group-hover:text-rose-400 transition-colors mb-2">
+                <h3 className="text-lg font-bold font-display text-slate-900 dark:text-white group-hover:text-rose-600 dark:group-hover:text-rose-400 transition-colors mb-2">
                   {service.title}
                 </h3>
 
-                <p className="text-xs sm:text-sm text-slate-300 mb-5 leading-relaxed">
+                <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mb-5 leading-relaxed">
                   {service.shortDesc}
                 </p>
 
                 {/* Deliverables List */}
-                <div className="space-y-2 mb-6">
-                  <span className="text-[11px] font-mono font-semibold text-slate-400 uppercase tracking-wider block">
-                    Entregables Clave:
+                <div className="space-y-2 mb-5">
+                  <span className="text-[11px] font-mono font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider block">
+                    Entregables Principales:
                   </span>
-                  <ul className="space-y-2 text-xs text-slate-300">
+                  <ul className="space-y-1.5 text-xs text-slate-600 dark:text-slate-300">
                     {service.deliverables.map((item, idx) => (
                       <li key={idx} className="flex items-start gap-2">
-                        <Check className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                        <Check className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
                         <span>{item}</span>
                       </li>
                     ))}
@@ -88,8 +88,8 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
                 </div>
 
                 {/* Ideal For Box */}
-                <div className="p-3 rounded-xl bg-slate-900/60 border border-slate-800/80 text-xs text-slate-400 mb-6">
-                  <strong className="text-slate-300 font-semibold block mb-0.5">Ideal para:</strong>
+                <div className="p-3 rounded-lg bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-xs text-slate-600 dark:text-slate-400 mb-5">
+                  <strong className="text-slate-800 dark:text-slate-200 font-semibold block mb-0.5">Dirigido a:</strong>
                   <span>{service.idealFor}</span>
                 </div>
               </div>
@@ -97,7 +97,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
               {/* Action Button */}
               <button
                 onClick={() => handleSelectService(service.title)}
-                className="w-full py-3 px-4 rounded-xl bg-slate-900 hover:bg-rose-600 text-slate-200 hover:text-white font-semibold text-xs transition-all flex items-center justify-center gap-2 border border-slate-800 hover:border-rose-500 cursor-pointer shadow-sm"
+                className="w-full py-2.5 px-4 rounded-lg bg-white dark:bg-slate-950 hover:bg-slate-900 hover:text-white dark:hover:bg-rose-600 dark:hover:text-white text-slate-800 dark:text-slate-200 font-medium text-xs transition-colors flex items-center justify-center gap-2 border border-slate-200 dark:border-slate-800 cursor-pointer shadow-xs"
               >
                 <span>Solicitar propuesta para este servicio</span>
                 <ArrowRight className="w-3.5 h-3.5" />

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { ThemeProvider } from './context/ThemeContext';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { ProjectsSection } from './components/ProjectsSection';
@@ -10,7 +11,7 @@ import { ContactSection } from './components/ContactSection';
 import { BookingModal } from './components/BookingModal';
 import { Footer } from './components/Footer';
 
-export default function App() {
+function PortfolioApp() {
   const [isBookingModalOpen, setIsBookingModalOpen] = useState<boolean>(false);
   const [selectedServiceForContact, setSelectedServiceForContact] = useState<string>('');
 
@@ -31,8 +32,8 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 font-sans selection:bg-rose-500/20 selection:text-rose-400">
-      {/* Top Navbar */}
+    <div className="min-h-screen bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 font-sans selection:bg-rose-500/20 selection:text-rose-600 dark:selection:text-rose-400 transition-colors duration-200">
+      {/* Top Navbar with Theme Toggle */}
       <Navbar
         onOpenBooking={handleOpenBooking}
         onSelectService={handleSelectService}
@@ -76,5 +77,13 @@ export default function App() {
       {/* Footer */}
       <Footer />
     </div>
+  );
+}
+
+export default function App() {
+  return (
+    <ThemeProvider>
+      <PortfolioApp />
+    </ThemeProvider>
   );
 }
